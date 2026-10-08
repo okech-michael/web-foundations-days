@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light;
+  --page-background: #f3f6fb;
+  --surface-background: #fff;
+  --text-color: #263244;
+  --muted-color: #526174;
+  --border-color: #aebdce;
+  --button-background: #2457a7;
+  --button-text: #fff;
+  --warning-color: #b45309;
+  --over-color: #c62828;
+}
+
+body.dark {
+  color-scheme: dark;
+  --page-background: #151a23;
+  --surface-background: #222b38;
+  --text-color: #edf2f8;
+  --muted-color: #b5c0ce;
+  --border-color: #58677a;
+  --button-background: #527fc4;
+  --button-text: #fff;
+  --warning-color: #ffb74d;
+  --over-color: #ff7777;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 1rem;
+  background-color: var(--page-background);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+main {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: var(--surface-background);
+  box-shadow: 0 4px 18px rgb(25 45 75 / 12%);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  padding: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--page-background);
+  color: var(--text-color);
+  font: inherit;
+  resize: vertical;
+}
+
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid #70a6f5;
+  outline-offset: 2px;
+}
+
+.counters {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted-color);
+}
+
+.counters p {
+  margin: 0.5rem 0;
+}
+
+#char-count.warning {
+  color: var(--warning-color);
+}
+
+#char-count.over {
+  color: var(--over-color);
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  cursor: pointer;
+  font: inherit;
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+button:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+
+  main {
+    margin: 0.5rem auto;
+    padding: 1.25rem;
+  }
+
+  .counters {
+    flex-direction: column;
+    gap: 0;
+  }
+}
